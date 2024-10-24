@@ -49,5 +49,19 @@ function validarAntesDeEnviar(event) {
     // Si hay errores, evitar el envío del formulario
     if (hayErrores) {
         event.preventDefault(); // Previene el envío del formulario
+    } else {
+        // Mostrar SweetAlert si todo está bien
+        event.preventDefault(); // Evitar el envío para mostrar el alert primero
+        Swal.fire({
+            icon: 'success',
+            title: 'Bien hecho!',
+            text: 'Los datos han sido validados correctamente.',
+            confirmButtonText: 'Continuar'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                document.getElementById('formulario').submit(); // Envía el formulario
+            }
+        });
     }
+
 }

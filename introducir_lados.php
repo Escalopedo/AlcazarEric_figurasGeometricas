@@ -18,6 +18,8 @@ $figura = $_SESSION['figura'];
     <title>Introducir Lados</title>
     <link rel="stylesheet" href="css/lados.css">
     <script src="js/validacion.js" ></script> 
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 </head>
 <body>
     <h1>Introducir lados:</h1>
