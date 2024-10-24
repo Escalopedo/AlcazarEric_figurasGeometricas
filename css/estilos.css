@@ -1,0 +1,45 @@
+body {
+    font-family: Arial, sans-serif;
+    background: black url('../img/fondo2.gif') no-repeat center center fixed;
+    background-size: contain;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    color: black;
+}
+
+.figure-select {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 30px;
+    justify-items: center;
+    margin: 50px auto;
+    max-width: 400px;
+}
+
+.figure-select form {
+    text-align: center;
+}
+
+.figure-select img {
+    width: 150px;
+    height: 150px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.figure-select img:hover {
+    transform: scale(1.1);
+}
+
+button {
+    background: none;
+    border: none;
+    padding: 0;
+}
+
+p {
+    margin-top: 10px;
+    font-weight: bold;
+    color: #fff;
+}
