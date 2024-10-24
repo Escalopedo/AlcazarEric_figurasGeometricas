@@ -3,7 +3,7 @@
 
 body {
     font-family: 'Audiowide', sans-serif;
-    background: black url('../img/figuras.gif') no-repeat center center fixed; /* Imagen de fondo y color negro */
+    background: black url('../img/figuras.gif') no-repeat center center fixed;
     background-size: contain;
     text-align: center;
     margin: 0;

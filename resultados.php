@@ -7,8 +7,8 @@ if (!isset($_SESSION['figura'])) {
     exit();
 }
 
-// Verificar si lado1 está definido antes de usarlo
-$lado1 = $_SESSION['lado1'] ?? null; // Usar null si no está definido
+// Verificar si lado1 está definido antes de usarlo (lado1 es obligatorio en todo)
+$lado1 = $_SESSION['lado1'] ?? null; // Usar null si no está definido, si no peta al hacerlo en el mismo php
 $lado2 = $_SESSION['lado2'] ?? null; 
 $lado3 = $_SESSION['lado3'] ?? null; 
 $figura = $_SESSION['figura'];
@@ -20,6 +20,7 @@ require_once 'clases/Triangulo.php';
 require_once 'clases/Circulo.php';
 
 switch ($figura) {
+    // en el caso que los ladoss que piden esten vacio los llevamos al index.php (validación por si se intenta colar)
     case 'cuadrado':
         if ($lado1 === null) {
             header('Location: index.php');

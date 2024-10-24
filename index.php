@@ -25,7 +25,8 @@ if (isset($_POST['figura'])) {
 <br>
 <br>
     <div class="figure-select">
-        <!-- Cuadrado -->
+       
+    <!-- Cuadrado -->
         <div class="figure-item">
             <form action="index.php" method="post">
                 <input type="hidden" name="figura" value="cuadrado">
