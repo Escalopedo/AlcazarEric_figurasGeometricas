@@ -1,12 +1,14 @@
 <?php
 require_once 'Figura.php';
 
-class Rectangulo extends Figura {
+class Triangulo extends Figura {
     public $lado2;
+    public $lado3;
 
-    public function __construct($lado1, $lado2) {
-        parent::__construct("Rectángulo", $lado1);
+    public function __construct($lado1, $lado2, $lado3) {
+        parent::__construct("Triángulo", $lado1);
         $this->lado2 = $lado2;
+        $this->lado3 = $lado3;
     }
 
     public function getLado2() {
@@ -17,16 +19,25 @@ class Rectangulo extends Figura {
         $this->lado2 = $lado2;
     }
 
+    public function getLado3() {
+        return $this->lado3;
+    }
+
+    public function setLado3($lado3) {
+        $this->lado3 = $lado3;
+    }
+
     public function calcularArea() {
-        return $this->lado1 * $this->lado2;
+        $area = ($this->lado1 + $this->lado2 + $this->lado3) / 2;
+        return sqrt($area * ($area - $this->lado1) * ($area - $this->lado2) * ($area - $this->lado3));
     }
 
     public function calcularPerimetro() {
-        return 2 * ($this->lado1 + $this->lado2);
+        return $this->lado1 + $this->lado2 + $this->lado3;
     }
 
     public function __toString() {
-        return "Tipo de figura: $this->tipoFigura, Lados: $this->lado1, $this->lado2";
+        return "Tipo de figura: $this->tipoFigura, Lados: $this->lado1, $this->lado2, $this->lado3";
     }
 
     public function __destruct() {
