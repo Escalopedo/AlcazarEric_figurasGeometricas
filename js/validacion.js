@@ -17,8 +17,8 @@ function validarCampo(id) {
     }
 
     // Validación: el valor es menor a 0
-    if (value < 0) {
-        errorDiv.innerHTML = 'El valor no puede ser negativo';
+    if (value < 1) {
+        errorDiv.innerHTML = 'El valor no puede ser negativo o 0';
         errorDiv.style.color = 'red';
         input.style.borderColor = 'red';
         return false; // Indica que el campo no es válido
