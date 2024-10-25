@@ -1,9 +1,9 @@
 <?php
 session_start();
 
-// Si ya se ha seleccionado una figura, se redirige a la página para introducir lados
-if (isset($_POST['figura'])) {
-    $_SESSION['figura'] = $_POST['figura'];
+// Procesar la selección de figura
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $_SESSION['figura'] = $_POST['figura']; // Asumiendo que `figura` es el nombre del campo del formulario
     header('Location: introducir_lados.php');
     exit();
 }

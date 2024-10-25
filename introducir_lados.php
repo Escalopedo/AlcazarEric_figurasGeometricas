@@ -10,11 +10,6 @@ if (!isset($_SESSION['figura'])) {
 
 $figura = $_SESSION['figura'];
 
-if (!isset($_SESSION['lado1'])) {
-    header('Location: index.php'); // Redirigir si no está definido
-    exit();
-}
-
 ?>
 <!DOCTYPE html>
 <html lang="es">

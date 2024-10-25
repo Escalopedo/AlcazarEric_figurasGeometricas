@@ -1,11 +1,6 @@
 <?php 
 session_start();
 
-// Verificar si se ha seleccionado una figura
-if (!isset($_SESSION['lado1'])) {
-    header('Location: index.php');
-    exit();
-}
 
 // Guardar lados en la sesión desde el formulario
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
