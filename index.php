@@ -65,6 +65,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 </button>
             </form>
         </div>
+
+        <!-- Trapecio -->
+        <div class="figure-item">
+            <form action="index.php" method="post">
+                <input type="hidden" name="figura" value="trapecio">
+                <button type="submit">
+                    <img src="img/trapecio.jpg" alt="trapecio">
+                </button>
+            </form>
+        </div>
+
     </div>
 </body>
 </html>

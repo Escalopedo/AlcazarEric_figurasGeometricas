@@ -10,6 +10,13 @@ if (!isset($_SESSION['figura'])) {
 
 $figura = $_SESSION['figura'];
 
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $_SESSION['lado1'] = $_POST['lado1'];
+    header('Location: resultados.php');
+    exit();
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -67,6 +74,24 @@ $figura = $_SESSION['figura'];
         <?php } ?>
 
         <br><br>
+
+        <!-- Caso para Trapecio -->
+        <?php if ($figura == 'trapecio') { ?>
+            <label for="lado1">Introduce el largo menor :</label><br><br>
+            <input type="number" name="lado1" id="lado1" onblur="validarCampo('lado1')">
+            <div id="error-lado1" class="error-message"></div> 
+            <br><br>
+            <label for="lado2">Introduce el largo mayor:</label><br><br>
+            <input type="number" name="lado2" id="lado2" onblur="validarCampo('lado2')">
+            <div id="error-lado2" class="error-message"></div> 
+            <br><br>
+            <label for="lado3">Introduce la altura:</label><br><br>
+            <input type="number" name="lado3" id="lado3" onblur="validarCampo('lado3')">
+            <div id="error-lado3" class="error-message"></div> 
+        <?php } ?>
+
+        <br><br>
+
         <input type="submit" value="Calcular" onclick="validarAntesDeEnviar(event)">
     </form>
 </body>

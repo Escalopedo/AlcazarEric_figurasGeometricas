@@ -4,23 +4,29 @@ session_start();
 
 // Guardar lados en la sesión desde el formulario
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    // Asegúrate de que los valores se guardan en la sesión
     $_SESSION['lado1'] = $_POST['lado1'] ?? null;
     $_SESSION['lado2'] = $_POST['lado2'] ?? null;
     $_SESSION['lado3'] = $_POST['lado3'] ?? null;
+
 }
 
-// Verificar si lado1 está definido antes de usarlo
+// Verificar si lado1 está definido y los demás
 $lado1 = $_SESSION['lado1'] ?? null; 
 $lado2 = $_SESSION['lado2'] ?? null; 
 $lado3 = $_SESSION['lado3'] ?? null; 
 $figura = $_SESSION['figura'];
 
-// Requerir las clases correspondientes
+if (!isset($_SESSION['lado1'])) {
+    // Si no hay lado1 seleccionada, redirigir al usuario a la página principal
+    header('Location: index.php');
+    exit();
+}
+
 require_once 'clases/Cuadrado.php';
 require_once 'clases/Rectangulo.php';
 require_once 'clases/Triangulo.php';
 require_once 'clases/Circulo.php';
+require_once 'clases/Trapecio.php';
 
 switch ($figura) {
     case 'cuadrado':
@@ -51,6 +57,13 @@ switch ($figura) {
         }
         $figuraObj = new Circulo($lado1);
         break;
+        case 'trapecio':
+            if ($lado1 === null || $lado2 === null || $lado3 === null) {
+                header('Location: index.php');
+                exit();
+            }
+            $figuraObj = new Trapecio($lado1,$lado2,$lado3);
+            break;
 }
 
 // Calcular área y perímetro
